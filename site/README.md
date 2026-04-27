@@ -41,3 +41,23 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## ▲ Deploy on Vercel
+
+This Astro project lives in the `site/` subfolder of the repo. When importing into Vercel:
+
+1. **Import** the GitHub repo into Vercel.
+2. Set **Root Directory** to `site`. Framework preset is auto-detected as Astro.
+3. Leave **Build Command** (`astro build`) and **Output Directory** (`dist`) at their defaults — they're also pinned in `vercel.json`.
+4. **Node version** is pinned via `.nvmrc` (22.12.0).
+
+No SSR adapter is needed — the site builds to fully static HTML.
+
+Local Vercel CLI deploys:
+
+```sh
+npm i -g vercel
+vercel link        # link the local site/ folder to a Vercel project
+vercel             # preview deploy
+vercel --prod      # production deploy
+```

@@ -25,6 +25,7 @@ pnpm-debug.log*
 # local tool dirs
 .claude/
 .playwright-mcp/
+.vercel/
 
 # dev screenshots / design references
 *.png
