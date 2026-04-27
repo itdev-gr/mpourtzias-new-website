@@ -1,0 +1,173 @@
+---
+const aboutImg =
+  "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=80";
+---
+
+<section id="about" class="about section section--whisper">
+  <div class="about-grid">
+    <div class="about-text">
+      <span class="eyebrow" data-reveal>
+        ETAIPEIA <span class="eyebrow-line" data-reveal-line></span>
+      </span>
+
+      <h2 class="section-title" data-split-title>
+        <span class="line">59ST</span>
+        <span class="line">CONSTRACTION</span>
+      </h2>
+
+      <div class="body-copy stack" data-reveal-stagger>
+        <p>
+          Καλωσορίσατε στην <strong>59ST CONSTRACTION O.E.</strong>, όπου το όραμά σας
+          γίνεται πραγματικότητα. Εξειδικευόμαστε σε
+          <strong>ανακαινίσεις</strong> και <strong>κατασκευές</strong> υψηλής
+          ποιότητας, προσαρμοσμένες στις ανάγκες και τις δυνατότητές σας.
+        </p>
+        <p>
+          Με πολυετή εμπειρία και εξειδίκευση στον σχεδιασμό, την κατασκευή και
+          τη διαχείριση έργων κάθε κλίμακας, προσφέρουμε υπηρεσίες υψηλής
+          ποιότητας που καλύπτουν κάθε ανάγκη του πελάτη.
+        </p>
+        <p>
+          Η δέσμευσή μας στην ποιότητα, η τεχνογνωσία και η προσήλωσή μας στην
+          καινοτομία εξασφαλίζουν έργα που ξεχωρίζουν για την αξιοπιστία, την
+          ανθεκτικότητα και την αισθητική τους.
+        </p>
+      </div>
+
+      <dl class="stat-row" data-reveal-stagger>
+        <div>
+          <dt>11+</dt>
+          <dd>έτη <br />εμπειρίας</dd>
+        </div>
+        <div>
+          <dt>140</dt>
+          <dd>ολοκληρωμένα <br />έργα</dd>
+        </div>
+        <div>
+          <dt>59</dt>
+          <dd>Marathonodromou,<br />Marousi</dd>
+        </div>
+      </dl>
+    </div>
+
+    <figure class="about-figure" data-reveal>
+      <img
+        src={aboutImg}
+        alt="Architectural detail — concrete and warm wood"
+        loading="lazy"
+        decoding="async"
+      />
+      <figcaption>
+        <span>Καρπός μελέτης</span>
+        <span class="line"></span>
+        <span>Marousi · Athens</span>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<style>
+  .about-grid {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: start;
+  }
+  .about-text { min-width: 0; }
+
+  .about-text { position: relative; }
+  .about-text .eyebrow { margin-bottom: 1.5rem; }
+  .about-text .body-copy { max-width: 32rem; }
+
+  .stat-row {
+    margin: clamp(2.5rem, 5vw, 3.5rem) 0 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1rem, 3vw, 2.5rem);
+    border-top: 1px solid rgba(0,0,0,0.08);
+    padding-top: clamp(1.75rem, 3vw, 2.5rem);
+  }
+  .stat-row > div { margin: 0; }
+  .stat-row dt {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    line-height: 1;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+  }
+  .stat-row dd {
+    margin: 0.75rem 0 0 0;
+    font-family: var(--font-display);
+    font-size: 0.625rem;
+    letter-spacing: var(--tracking-eyebrow);
+    text-transform: uppercase;
+    color: var(--bronze);
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+  }
+
+  .about-figure {
+    position: relative;
+    margin: 0;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+  }
+  .about-figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.92);
+    transform: scale(1.05);
+    transition: transform 1.6s var(--ease-arch);
+  }
+  .about-figure:hover img { transform: scale(1.0); }
+
+  .about-figure::before,
+  .about-figure::after {
+    content: "";
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    border-color: var(--bronze);
+    border-style: solid;
+  }
+  .about-figure::before {
+    top: -1px; left: -1px;
+    border-width: 1px 0 0 1px;
+  }
+  .about-figure::after {
+    bottom: -1px; right: -1px;
+    border-width: 0 1px 1px 0;
+  }
+
+  .about-figure figcaption {
+    position: absolute;
+    left: 1.25rem;
+    bottom: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-display);
+    font-size: 0.5625rem;
+    letter-spacing: var(--tracking-eyebrow);
+    color: var(--canvas);
+    text-transform: uppercase;
+    background: rgba(0,0,0,0.55);
+    padding: 0.55rem 0.85rem;
+    backdrop-filter: blur(2px);
+  }
+  .about-figure figcaption .line {
+    width: 1.5rem; height: 1px; background: var(--bronze);
+  }
+
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .about-figure { aspect-ratio: 4 / 3; }
+    .stat-row { grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+    .stat-row dt { font-size: 2rem; }
+  }
+</style>

@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Sidebar from "../components/Sidebar.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Projects from "../components/Projects.astro";
+import Services from "../components/Services.astro";
+import Contact from "../components/Contact.astro";
+---
+
+<Layout>
+  <div class="shell">
+    <Sidebar />
+    <main class="stage">
+      <Hero />
+      <About />
+      <Projects />
+      <Services />
+      <Contact />
+    </main>
+  </div>
+
+  <script>
+    import "../scripts/main.ts";
+  </script>
+</Layout>

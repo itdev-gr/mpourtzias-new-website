@@ -1,0 +1,205 @@
+/* ==========================================================================
+   59ST CONSTRACTION — Design Tokens
+   Source of truth: DESIGN.md
+   ========================================================================== */
+
+:root {
+  /* Palette */
+  --bronze: #b19777;
+  --bronze-soft: #c9b497;
+  --ink: #272727;
+  --slate: #777777;
+  --whisper: #fafafa;
+  --canvas: #ffffff;
+  --black: #000000;
+
+  /* Typography */
+  --font-display: "Oswald", "Helvetica Neue", sans-serif;
+  --font-body: "Didact Gothic", "Helvetica Neue", sans-serif;
+
+  /* Tracking scale */
+  --tracking-eyebrow: 0.5625rem;   /* 9px  */
+  --tracking-section: 0.625rem;    /* 10px */
+  --tracking-hero: 0.9375rem;      /* 15px */
+  --tracking-sub: 0.3125rem;       /* 5px  */
+  --tracking-body: 0;
+
+  /* Spacing scale (from WP defaults the source exposed) */
+  --s-20: 0.44rem;
+  --s-30: 0.67rem;
+  --s-40: 1rem;
+  --s-50: 1.5rem;
+  --s-60: 2.25rem;
+  --s-70: 3.38rem;
+  --s-80: 5.06rem;
+
+  /* Layout */
+  --rail: 30vw;
+  --rail-min: 280px;
+  --rail-max: 380px;
+  --content-max: 1140px;
+
+  /* Motion */
+  --ease-arch: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-quiet: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ---- Reset ---- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--canvas);
+  color: var(--slate);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+button {
+  font-family: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+}
+
+::selection {
+  background: var(--bronze);
+  color: var(--canvas);
+}
+
+/* ---- Typographic primitives ---- */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 0.625rem;        /* 10px */
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--bronze);
+  line-height: 1;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.75rem, 2.6vw, 2.5rem);  /* ~28-40px */
+  line-height: 1.25;
+  letter-spacing: var(--tracking-section);
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 var(--s-50) 0;
+}
+
+.subhead {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  letter-spacing: var(--tracking-sub);
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 var(--s-40) 0;
+}
+
+.body-copy { color: var(--slate); }
+.body-copy strong { color: var(--ink); font-weight: 600; }
+
+/* ---- Outline button ---- */
+.btn-outline {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 0.6875rem;       /* 11px */
+  letter-spacing: 0.4375rem;  /* 7px */
+  text-transform: uppercase;
+  padding: 1.05rem 2.25rem 0.95rem;
+  border: 1px solid currentColor;
+  border-radius: 0;
+  background: transparent;
+  color: var(--canvas);
+  transition: background-color 0.4s var(--ease-arch),
+              color 0.4s var(--ease-arch),
+              letter-spacing 0.5s var(--ease-arch);
+}
+.btn-outline:hover {
+  background: var(--canvas);
+  color: var(--ink);
+  letter-spacing: 0.5625rem;
+}
+.btn-outline.is-dark {
+  color: var(--ink);
+}
+.btn-outline.is-dark:hover {
+  background: var(--ink);
+  color: var(--canvas);
+}
+
+/* ---- Page shell ---- */
+.shell {
+  min-height: 100vh;
+  display: block;
+}
+
+main.stage {
+  position: relative;
+  overflow: hidden; /* Ken-Burns scale would otherwise leak */
+}
+
+/* Section frame */
+.section {
+  position: relative;
+  padding: clamp(4rem, 9vw, 7.5rem) clamp(1.5rem, 5vw, 5rem);
+}
+
+.section--inverse {
+  background: var(--ink);
+  color: var(--canvas);
+}
+.section--inverse .section-title { color: var(--canvas); }
+.section--inverse .body-copy { color: rgba(255,255,255,0.7); }
+
+.section--whisper {
+  background: var(--whisper);
+}
+
+/* Helpers */
+.cluster { display: flex; gap: var(--s-50); align-items: center; flex-wrap: wrap; }
+.stack > * + * { margin-top: var(--s-40); }
+
+/* Bronze hairline accent line — used after eyebrows */
+.eyebrow-line {
+  display: inline-block;
+  width: 2.5rem;
+  height: 1px;
+  background: var(--bronze);
+  vertical-align: middle;
+  margin-left: 0.875rem;
+  transform-origin: left center;
+}
+
+/* Hide things until JS reveals them — avoids FOUC of staggers */
+[data-reveal] { opacity: 0; }
+[data-split-title] .line {
+  display: block;
+  overflow: hidden;
+}
+[data-split-title] .char,
+[data-split-title] em,
+[data-split-title] strong {
+  display: inline-block;
+}
+
+/* No-JS fallback */
+.no-js [data-reveal] { opacity: 1; }

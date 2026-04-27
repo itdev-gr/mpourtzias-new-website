@@ -1,0 +1,41 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "59ST CONSTRACTION — Innovate Construction & Renovation in Greece",
+  description = "Crafting spaces with precision, innovation, and style. A Greek technical company specializing in construction, renovation, and design.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+
+    <!-- Fonts: Oswald (display) + Didact Gothic (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Oswald:wght@300;400;500&display=swap"
+    />
+
+    <script is:inline>
+      // Replace no-js as early as possible
+      document.documentElement.classList.remove("no-js");
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

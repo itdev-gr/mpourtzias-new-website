@@ -1,0 +1,30 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+.astro/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# environment
+.env
+.env.local
+.env.production
+
+# OS
+.DS_Store
+
+# editor
+.idea/
+
+# local tool dirs
+.claude/
+.playwright-mcp/
+
+# dev screenshots / design references
+*.png

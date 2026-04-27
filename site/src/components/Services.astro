@@ -1,0 +1,167 @@
+---
+const services = [
+  {
+    n: "01",
+    title: "ΑΝΑΚΑΙΝΙΣΕΙΣ",
+    en: "Renovations",
+    body:
+      "Δομικές και κατοικιακές αναβαθμίσεις με έμφαση στη λειτουργικότητα και την ενεργειακή απόδοση — από εξατομικευμένο σχεδιασμό έως ολοκληρωμένη παράδοση.",
+    items: ["Structural updates", "Energy retrofits", "Project management"],
+  },
+  {
+    n: "02",
+    title: "ΚΑΤΑΣΚΕΥΕΣ",
+    en: "Construction",
+    body:
+      "Ολοκληρωμένα έργα κατοικιών και επαγγελματικών χώρων από τη μελέτη έως την παράδοση κλειδί στο χέρι, με έμφαση στην ποιότητα και την ανθεκτικότητα.",
+    items: ["Residential builds", "Commercial fit-outs", "Turnkey delivery"],
+  },
+  {
+    n: "03",
+    title: "ΣΧΕΔΙΑΣΜΟΣ",
+    en: "Design & Decoration",
+    body:
+      "Δημιουργία χώρων με αισθητική και πρακτική λειτουργικότητα. Συνεργαζόμαστε στενά με κάθε πελάτη για να εκφράσουμε το όραμά του στον χώρο.",
+    items: ["Interior architecture", "Material curation", "Lighting design"],
+  },
+];
+---
+
+<section id="services" class="services section section--inverse">
+  <div class="services-head">
+    <span class="eyebrow" data-reveal>
+      Capabilities <span class="eyebrow-line"></span>
+    </span>
+    <h2 class="section-title" data-split-title>
+      <span class="line">ΥΠΗΡΕΣΙΕΣ</span>
+    </h2>
+    <p class="services-lede body-copy" data-reveal>
+      Τρεις πυλώνες — μία προσέγγιση: μελετημένη, διακριτική, διαρκής.
+    </p>
+  </div>
+
+  <ol class="services-list" data-services>
+    {services.map((s, i) => (
+      <li class="svc" data-svc style={`--idx:${i}`}>
+        <span class="svc-num">{s.n}</span>
+        <div class="svc-body">
+          <span class="svc-en">{s.en}</span>
+          <h3 class="svc-title">{s.title}</h3>
+          <p>{s.body}</p>
+          <ul class="svc-items">
+            {s.items.map((it) => (
+              <li>
+                <span class="bullet"></span>
+                <span>{it}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <span class="svc-rule"></span>
+      </li>
+    ))}
+  </ol>
+</section>
+
+<style>
+  .services-head {
+    max-width: var(--content-max);
+    margin: 0 auto clamp(3rem, 5vw, 4.5rem);
+  }
+  .services-head .eyebrow { margin-bottom: 1.5rem; color: var(--bronze); }
+  .services-head .section-title { color: var(--canvas); }
+  .services-lede { max-width: 32rem; color: rgba(255,255,255,0.72); }
+
+  .services-list {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    list-style: none;
+    padding: 0;
+    counter-reset: svc;
+  }
+
+  .svc {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+    padding: clamp(2.5rem, 5vw, 3.75rem) 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    position: relative;
+  }
+  .svc:last-child { border-bottom: 1px solid rgba(255,255,255,0.1); }
+
+  .svc-num {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(2rem, 4.5vw, 3.6rem);
+    letter-spacing: 0.04em;
+    color: var(--bronze);
+    line-height: 1;
+  }
+
+  .svc-body {
+    max-width: 36rem;
+  }
+  .svc-en {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.625rem;
+    letter-spacing: var(--tracking-eyebrow);
+    color: var(--bronze);
+    text-transform: uppercase;
+    margin-bottom: 0.875rem;
+  }
+  .svc-title {
+    margin: 0 0 1.1rem 0;
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(1.4rem, 2vw, 1.75rem);
+    letter-spacing: var(--tracking-section);
+    text-transform: uppercase;
+    color: var(--canvas);
+  }
+  .svc p {
+    margin: 0 0 1.5rem 0;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.85;
+    max-width: 32rem;
+  }
+  .svc-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.75rem;
+  }
+  .svc-items li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-display);
+    font-size: 0.625rem;
+    letter-spacing: var(--tracking-eyebrow);
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+  }
+  .svc-items .bullet {
+    width: 6px; height: 6px; background: var(--bronze);
+  }
+
+  /* Hairline that sweeps in on hover */
+  .svc-rule {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--bronze);
+    transition: width 0.7s var(--ease-arch);
+  }
+  .svc:hover .svc-rule { width: 100%; }
+
+  @media (max-width: 720px) {
+    .svc { grid-template-columns: 1fr; gap: 0.75rem; }
+    .svc-num { font-size: 2rem; }
+  }
+</style>

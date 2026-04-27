@@ -1,0 +1,182 @@
+---
+---
+
+<section id="contact" class="contact section">
+  <div class="contact-grid">
+    <div class="contact-text">
+      <span class="eyebrow" data-reveal>
+        Get in touch <span class="eyebrow-line"></span>
+      </span>
+      <h2 class="section-title" data-split-title>
+        <span class="line">ΕΠΙΚΟΙΝΩΝΗΣΤΕ</span>
+        <span class="line">ΜΑΖΙ ΜΑΣ</span>
+      </h2>
+      <p class="body-copy" data-reveal>
+        Πείτε μας για το έργο σας. Απαντάμε εντός μιας εργάσιμης ημέρας —
+        στα Ελληνικά ή στα Αγγλικά.
+      </p>
+
+      <ul class="contact-list" data-reveal-stagger>
+        <li>
+          <span class="ck">Address</span>
+          <span class="cv">Marathonodromou 59 · 151 24 Marousi · Athens</span>
+        </li>
+        <li>
+          <span class="ck">Phone</span>
+          <span class="cv">+30 210 000 0059</span>
+        </li>
+        <li>
+          <span class="ck">Email</span>
+          <span class="cv">studio@fn-constraction.gr</span>
+        </li>
+        <li>
+          <span class="ck">Hours</span>
+          <span class="cv">Mon–Fri · 09:00 — 18:00</span>
+        </li>
+      </ul>
+    </div>
+
+    <form class="contact-form" data-reveal onsubmit="event.preventDefault(); this.querySelector('button').textContent='SENT · ΕΥΧΑΡΙΣΤΟΥΜΕ';">
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required autocomplete="name" />
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required autocomplete="email" />
+      </div>
+      <div class="field">
+        <label for="kind">Project kind</label>
+        <select id="kind" name="kind">
+          <option>Renovation</option>
+          <option>Construction</option>
+          <option>Design &amp; Decoration</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field field--full">
+        <label for="msg">Tell us about your space</label>
+        <textarea id="msg" name="msg" rows="4" required></textarea>
+      </div>
+      <button class="btn-outline is-dark" type="submit">SEND ENQUIRY</button>
+    </form>
+  </div>
+
+  <footer class="footer">
+    <span>© 2026 · 59ST CONSTRACTION O.E.</span>
+    <span class="rule"></span>
+    <span>Designed in Marousi · Built with Astro &amp; GSAP</span>
+  </footer>
+</section>
+
+<style>
+  .contact-grid {
+    max-width: var(--content-max);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: clamp(2.5rem, 5vw, 5rem);
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; }
+  }
+
+  .contact-text .eyebrow { margin-bottom: 1.5rem; }
+  .contact-text .body-copy { max-width: 32rem; }
+
+  .contact-list {
+    list-style: none;
+    margin: clamp(2rem, 4vw, 2.75rem) 0 0;
+    padding: 0;
+  }
+  .contact-list li {
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    gap: 1.5rem;
+    padding: 1.1rem 0;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    align-items: baseline;
+  }
+  .contact-list li:last-child { border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .ck {
+    font-family: var(--font-display);
+    font-size: 0.5625rem;
+    letter-spacing: var(--tracking-eyebrow);
+    color: var(--bronze);
+    text-transform: uppercase;
+  }
+  .cv {
+    font-family: var(--font-body);
+    color: var(--ink);
+    font-size: 0.95rem;
+  }
+
+  /* ---- Form ---- */
+  .contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem 1.5rem;
+  }
+  .field { display: flex; flex-direction: column; }
+  .field--full { grid-column: 1 / -1; }
+  .field label {
+    font-family: var(--font-display);
+    font-size: 0.5625rem;
+    letter-spacing: var(--tracking-eyebrow);
+    color: var(--bronze);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.18);
+    border-radius: 0;
+    padding: 0.65rem 0;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--ink);
+    transition: border-color 0.4s var(--ease-arch);
+    appearance: none;
+  }
+  .field textarea { resize: vertical; min-height: 6.5rem; }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    outline: none;
+    border-bottom-color: var(--bronze);
+  }
+  .contact-form button {
+    grid-column: 1 / -1;
+    justify-self: start;
+    margin-top: 0.75rem;
+    color: var(--ink);
+  }
+  .contact-form button:hover { background: var(--ink); color: var(--canvas); }
+
+  @media (max-width: 600px) {
+    .contact-form { grid-template-columns: 1fr; }
+    .contact-list li { grid-template-columns: 1fr; gap: 0.25rem; }
+  }
+
+  /* ---- Footer ---- */
+  .footer {
+    max-width: var(--content-max);
+    margin: clamp(4rem, 6vw, 5rem) auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: var(--font-display);
+    font-size: 0.5625rem;
+    letter-spacing: var(--tracking-eyebrow);
+    color: var(--slate);
+    text-transform: uppercase;
+    flex-wrap: wrap;
+  }
+  .footer .rule { flex: 1 1 3rem; height: 1px; background: rgba(0,0,0,0.12); min-width: 1.5rem; }
+</style>
