@@ -66,6 +66,17 @@
     <span>© 2026 · 59ST CONSTRACTION O.E.</span>
     <span class="rule"></span>
     <span>Designed in Marousi · Built with Astro &amp; GSAP</span>
+    <span class="rule"></span>
+    <span>
+      Powered by
+      <a
+        class="footer-link"
+        href="https://www.itdev.gr"
+        target="_blank"
+        rel="noopener"
+        title="Web design &amp; development by itdev"
+      >itdev.gr</a>
+    </span>
   </footer>
 </section>
 
@@ -179,4 +190,16 @@
     flex-wrap: wrap;
   }
   .footer .rule { flex: 1 1 3rem; height: 1px; background: rgba(0,0,0,0.12); min-width: 1.5rem; }
+  .footer-link {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+    padding-bottom: 1px;
+    transition: border-color 0.4s var(--ease-arch), color 0.4s var(--ease-arch);
+  }
+  .footer-link:hover,
+  .footer-link:focus-visible {
+    color: var(--bronze);
+    border-bottom-color: var(--bronze);
+  }
 </style>
